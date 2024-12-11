@@ -1,0 +1,82 @@
+#include <stdio.h>
+
+int main1() {
+    int i, j, k, n=4;
+    for (i = 1; i <= n; i++) {
+        
+        for (j = 1; j <= n - i; j++) {
+            printf(" ");
+        }
+        
+        for (k = 1; k <= 2 * i - 1; k++) {
+            printf("%c", 'A' + k - 1);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+int main() {
+    int n = 5; // 杨辉三角的行数
+    int arr[n][n]; // 用于存储杨辉三角的数组
+
+    // 初始化数组
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            arr[i][j] = 0;
+        }
+    }
+
+    // 构建杨辉三角
+    for (int i = 0; i < n; i++) {
+        arr[i][0] = 1; // 每行的第一个数是1
+        arr[i][i] = 1; // 每行的最后一个数是1
+        for (int j = 1; j < i; j++) {
+            arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j]; // 每个数是上一行相邻两数之和
+        }
+    }
+
+    // 打印杨辉三角
+    for (int i = 0; i < n; i++) {
+        // 打印前导空格
+        for (int k = 0; k < n - i - 1; k++) {
+            printf("  ");
+        }
+        // 打印每行的数字
+        for (int j = 0; j <= i; j++) {
+            printf("%4d", arr[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+int main3() {
+    int n, sum = 0, term;
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        term = 0;
+        for (int j = 0; j < i; j++) {
+            term = term * 10 + 1;
+        }
+        sum += term;
+        printf("%d", term);
+        if (i < n) {
+            printf("+");
+        }
+    }
+    printf("=%d\n", sum);
+    return 0;
+}
+
+int main4() {
+    int i=9, j;
+    for (j = 1; j <= i; j++) {
+        for (int k = 1; k <= i; k++) {
+            printf("%d*%d=%d ", j, k, j * k);
+        }
+        printf("\n");
+    }
+    return 0;
+}

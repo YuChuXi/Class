@@ -1,9 +1,38 @@
 #include <stdio.h>
-#include <stdlib.h>
+
+void sorted(int a[], int len)
+{
+    for (int i = len-1; i >= 0; i--)
+    {
+        int c = 0;
+        for (int j = 0; j < i; j++)
+        {
+            if (a[j] > a[j + 1])
+            {
+                int tmp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = tmp;
+                c++;
+            }
+        }
+        if (c == 0)
+        {
+            break;
+        }
+    }
+}
 
 int main()
 {
-   int a = 12;
-   printf("%d", a<<2);
-   return 0;
+    int a[] = {1, 546, 4, 4, 5, 7, 34, 323, 12, 968, 8, 76, 5, 21};
+    int len = sizeof(a) / sizeof(int);
+    printf("%d\n", len);
+
+    sorted(a, len);
+
+    for (int i = 0; i < len; i++)
+    {
+        printf("-%d \n", a[i]);
+    }
+    return 0;
 }
