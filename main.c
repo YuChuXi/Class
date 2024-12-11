@@ -2,7 +2,7 @@
 
 void sorted(int a[], int len)
 {
-    for (int i = len-1; i >= 0; i--)
+    for (int i = len - 1; i >= 0; i--)
     {
         int c = 0;
         for (int j = 0; j < i; j++)
@@ -22,6 +22,20 @@ void sorted(int a[], int len)
     }
 }
 
+int n = 0;
+int rean(int i)
+{
+    n++;
+    if (i == 1)
+    {
+        return i;
+    }
+    else
+    {
+        return rean(i - 1) + rean(i - 1);
+    }
+}
+
 int main()
 {
     int a[] = {1, 546, 4, 4, 5, 7, 34, 323, 12, 968, 8, 76, 5, 21};
@@ -34,5 +48,7 @@ int main()
     {
         printf("-%d \n", a[i]);
     }
+
+    printf("%d:%d", rean(31), n);
     return 0;
 }

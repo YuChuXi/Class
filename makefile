@@ -1,4 +1,4 @@
-cc=gcc -g3
+cc=gcc
 
 main: main.c
 	${cc} main.c -o main.bin
