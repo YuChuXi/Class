@@ -1,0 +1,16 @@
+.venv
+MMCEwin64
+mt86plus_7.20_64.iso
+*.zip
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+*.egg-info
+*.egg
+*.whl
+*.DS_Store
+*.log
+*.out
+*.tmp
+*.bak

@@ -15,14 +15,11 @@ __global__ void findPrimes(bool *d_prime, int start, int end) {
         int num = start + idx;
         bool isPrime = true;
 
-        if (num < 2) {
-            isPrime = false;
-        } else {
-            for (int i = 2; i * i <= num; i++) {
-                if (num % i == 0) {
-                    isPrime = false;
-                    break;
-                }
+
+        for (int i = 2; i * i <= num; i++) {
+            if (num*6+5 % i == 0) {
+                isPrime = false;
+                break;
             }
         }
 
@@ -59,7 +56,7 @@ int main() {
     std::cout << "Prime" << n << ": " << std::endl;
     for (int i = 2; i < n; i++) {
         if (h_prime[i]) {
-            std::cout << i << "\t";
+            std::cout << i*6+5 << "\t";
         }
     }
     std::cout << std::endl;
